@@ -1,0 +1,33 @@
+%form.form-inline{:action => "/attendance", :method => "post"}
+  .form-group
+    %input#inputSrchCourse.form-control{:required => "", :name => "srchcourse", :type => "text", :placeholder => "Course id#"}
+  %button.btn.btn-primary{:type => "submit"} Show
+
+%hr
+
+.text-center
+  = will_paginate(@all_users, :renderer => BootstrapPagination::Sinatra, :bootstrap => 3)
+
+.table-responsive
+  %table.table.table-striped.table-condensed.sortable
+    %tr
+      %th Date 
+      %th Name 
+      %th.sorttable_nosort Email
+      %th.sorttable_nosort Company
+      %th.sorttable_nosort Manager
+      %th Course-id 
+    - @all_users.each do |user|
+      %tr
+        %td
+          = user["date"]
+        %td
+          = user["empname"]
+        %td
+          = user["email"]
+        %td
+          = user["company"]
+        %td
+          = user["manager"]
+        %td
+          = user["course"]

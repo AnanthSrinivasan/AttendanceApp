@@ -1,0 +1,43 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %title Attendance Sign-in System
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %link{:href => "dist/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %link{:href => "stylesheets/custom.css", :rel => "stylesheet"}/
+
+  %body
+
+    .navbar.navbar-inverse.navbar-static-top
+      .container
+        %a.navbar-brand Attendance System
+        %button.navbar-toggle{"data-target" => ".navHeaderCollapse", "data-toggle" => "collapse"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        .collapse.navbar-collapse.navHeaderCollapse
+          %ul.nav.navbar-nav.navbar
+            %li.active
+              %a{:href => "/sign"} Sign-in
+            %li
+              %a{:href => "/attendance"} Attendance
+            %li
+              %a{:href => "/references"} Reference
+
+    .container= yield
+
+    .navbar.navbar-default.navbar-fixed-bottom
+      .container
+        .navbar-text.pull-left 
+          Best viewed in Chrome/Firefox...  
+        .navbar-text.pull-right 
+          For Queries, Pls mail to  
+          %a.btn.btn-danger{:href => "mailto:DL-PP-Rubyists@corp.ebay.com"} DL-PP-Rubyists &raquo;
+  
+    %script{:src => "dist/js/jquery-2.0.3.min.js"}
+    %script{:src => "dist/js/bootstrap.js"}
+    %script{:src => "dist/js/bootstrap.min.js"}
+    %script{:src => "dist/js/custom.js"}
+    %script{:src => "dist/js/jqBootstrapValidation.js"}
+    %script{:src => "dist/js/sorttable.js"}
+    

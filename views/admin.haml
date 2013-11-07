@@ -1,0 +1,33 @@
+%form.form-inline{:role => "form", :action => "/admin", :method => "post"}
+  .form-group
+    %label.sr-only{:for => "courseid"} Course Id
+    %input#inputcourseid.form-control{:required => "", :name => "courseid", :type => "text", :placeholder => "Course Id"}
+  .form-group
+    %label.sr-only{:for => "coursedetails"} Course Details
+    %input#inputcoursedet.form-control{:name => "coursedetails", :type => "text", :placeholder => "Course Details"}
+  %button#btngenlink.btn.btn-lg.btn-primary{:type => "submit"} Generate Link
+  
+%hr
+
+.text-center
+  = will_paginate(@all_courses, :renderer => BootstrapPagination::Sinatra, :bootstrap => 3)
+
+.table-responsive
+  %table.table.table-striped.table-condensed.sortable
+    %tr
+      %th Date 
+      %th Course-Id 
+      %th.sorttable_nosort Details
+      %th.sorttable_nosort Link 
+    - @all_courses.each do |course|
+      %tr
+        %td
+          = course["date"]
+        %td 
+          %a{:href => "/course\?courseid=#{course["courseid"]}"}
+            = course["courseid"]
+        %td
+          = course["coursedetails"]
+        %td
+          %a{:href => "#{course["courselink"].scan(/sign?.*/)[0]}"}
+            = course["courselink"]

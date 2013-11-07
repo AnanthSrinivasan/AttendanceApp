@@ -1,0 +1,22 @@
+- if @validtime == false
+  .alert.alert-dismissable.alert-danger.text-center
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+    Sorry! Attendance can be marked only between 9AM - 5PM.
+- elsif @duplicate == true
+  .alert.alert-dismissable.alert-info.text-center
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+    Your Attendance has already been Registered... 
+    %a.alert-link{:href => "/attendance"} Check here... 
+- else    
+  - if @auth == true
+    - insert_user @dname, @mail, @company, @manager, params[:courseid], Date.today.to_s
+    .alert.alert-dismissable.alert-success.text-center
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      Thanks #{params[:empname].split("\\").last}, Your Attendance has been Registered...
+  - else
+    .alert.alert-dismissable.alert-danger.text-center
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      Invalid Username or Password. 
+      %a.alert-link{:href => "/sign\?courseid=#{params[:courseid]}"} Try again...  
+     
+

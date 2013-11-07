@@ -1,0 +1,4 @@
+.alert.alert-dismissable.alert-success.text-center
+  %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+  Generated Link for #{@coursedet} : 
+  %a.alert-link{:href => "/sign\?courseid=#{@courseid}"} #{@courselink}
