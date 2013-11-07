@@ -1,1 +1,1 @@
-one: bundle exec ruby one.rb -p 9393
+one: bundle exec ruby one.rb 
