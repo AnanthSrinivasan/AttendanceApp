@@ -22,7 +22,11 @@ Technical Flow:
 	
 Testing:
 
-	GO to http://hyperlvs78.qa.paypal.com:9393/admin and add a new course and some details. 
+	GO to below links
+		http://floating-brook-1171.herokuapp.com/sign
+		http://atnapp-attendanceapp.rhcloud.com/sign
+	
+	you can go to /admin from the same root and add a new course and some details. 
 	
 	Press on Generate link, this will generate you a new link 
 	
