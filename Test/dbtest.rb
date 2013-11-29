@@ -17,7 +17,7 @@ def check_duplicate mail, crse
   (users.empty?) ? false : true
 end
 
-puts check_duplicate "amanoharan@paypal.com", "java002"
+puts check_duplicate "alwaysananth@gmail.com", "java002"
 
 
 

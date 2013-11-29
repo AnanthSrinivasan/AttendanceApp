@@ -23,7 +23,7 @@ end
 
 def authenticate user, pass
   @ldap = Net::LDAP.new 
-  @ldap.host = '10.254.58.54'
+  @ldap.host = '10.10.10.10' #Change the ip appropriately
   @ldap.port = 389
   @ldap.auth user, pass
   @ldap.bind ? true : false

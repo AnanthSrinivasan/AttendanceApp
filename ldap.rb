@@ -10,7 +10,7 @@ require 'highline/import'
  
 # 
 # ldap = Net::LDAP.new
-# ldap.host = '10.254.58.54'
+# ldap.host = '10.10.10.10' #Change ip appropriately
 # ldap.port = 389
 # ldap.auth user, pass
 # if ldap.bind
@@ -24,7 +24,7 @@ require 'highline/import'
 
 def authenticate user, pass
   
-  @ldap = Net::LDAP.new :host => '10.254.58.54',
+  @ldap = Net::LDAP.new :host => '10.10.10.10', #Change ip appropriately
                        :port => 389,
                        :auth => { :method => :simple,
                                   :username => user,
@@ -38,7 +38,7 @@ def authenticate user, pass
 end
 
 def ldap_attributes
-user = "sijayaraman"
+user = "ananth"
 base = "dc=corp, dc=ebay, dc=com"
 attrs = ["mail", "displayName", "manager", "department", "company"]
 filter = Net::LDAP::Filter.eq("sAMAccountName", user)
@@ -80,8 +80,8 @@ puts dname
 
 #puts ldap.get_operation_result
 
-# ldap = Net::LDAP.new(:host => '10.254.58.54', :port => 389)
-# if ldap.bind(:method => :simple, :username => "corp\\amanoharan",
+# ldap = Net::LDAP.new(:host => '10.10.10.10', :port => 389)
+# if ldap.bind(:method => :simple, :username => "corp\\ananth",
              # :password => pass)
   # puts 'authentication succeeded'
 # else
